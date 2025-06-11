@@ -296,30 +296,10 @@
                     case 'KR':
                         return 'ko';
                     default:
-                        // 3. 如果无法获取地理位置，则使用浏览器语言
-                        const browserLang = navigator.language || navigator.userLanguage;
-                        if (browserLang.includes('zh')) {
-                            return 'zh-CN';
-                        } else if (browserLang.includes('ja')) {
-                            return 'ja';
-                        } else if (browserLang.includes('ko')) {
-                            return 'ko';
-                        } else {
-                            return 'en';
-                        }
+                        return 'en'; // 默认使用英语
                 }
             } catch (error) {
-                // 如果获取地理位置失败，使用浏览器语言
-                const browserLang = navigator.language || navigator.userLanguage;
-                if (browserLang.includes('zh')) {
-                    return 'zh-CN';
-                } else if (browserLang.includes('ja')) {
-                    return 'ja';
-                } else if (browserLang.includes('ko')) {
-                    return 'ko';
-                } else {
-                    return 'en';
-                }
+                return 'en'; // 如果获取地理位置失败，默认使用英语
             }
         }
 
